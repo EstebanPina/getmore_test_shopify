@@ -144,7 +144,10 @@
                   {% endif %}
                   class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
                 >
-                  {{- block.settings.button_label_1 | escape -}}
+                  {{- block.settings.button_label_1 | escape -}} 
+                  <span class="svg-wrapper">
+                    {{- 'icon-arrow-button.svg' | inline_asset_content -}}
+                  </span>
                 </a>
               {%- endif -%}
               {%- if block.settings.button_label_2 != blank -%}
