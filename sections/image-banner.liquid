@@ -124,7 +124,7 @@
               class="banner__heading inline-richtext {{ block.settings.heading_size }}"
               {{ block.shopify_attributes }}
             >
-              {{ block.settings.heading }}
+              {{ block.settings.heading }} <span style="color: #cbe346;">{{ block.settings.color_text }}</span>
             </h2>
           {%- when 'text' -%}
             <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
@@ -378,9 +378,9 @@
         },
         {
           "type": "inline_richtext",
-          "id": "color-text",
-          "default": "t:sections.image-banner.blocks.heading.settings.heading.default",
-          "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+          "id": "color_text",
+          "default": "t:sections.image-banner.blocks.heading.settings.color_text.default",
+          "label": "t:sections.image-banner.blocks.heading.settings.color_text.label"
         },
         {
           "type": "select",
