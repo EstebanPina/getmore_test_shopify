@@ -1,1 +1,98 @@
-{"sections":{"image_banner":{"type":"image-banner","blocks":{"heading":{"type":"heading","settings":{"heading":"Las mejores raquetas para jugar <strong> <\/strong>Tennis","heading_size":"h0"}},"button":{"type":"buttons","settings":{"button_label_1":"Acerca de nosotros","button_link_1":"shopify:\/\/collections\/all","button_style_secondary_1":true,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}},"text_RpFDig":{"type":"text","settings":{"text":"Give customers details about the banner image(s) or content on the template.","text_style":"subtitle"}}},"block_order":["heading","button","text_RpFDig"],"custom_css":[".green-text {color: cbe346; font-style: bold;}"],"settings":{"image":"shopify:\/\/shop_images\/bg.png","image_overlay_opacity":10,"image_height":"large","desktop_content_position":"middle-left","show_text_box":false,"desktop_content_alignment":"left","color_scheme":"scheme-4","image_behavior":"none","mobile_content_alignment":"center","stack_images_on_mobile":false,"show_text_below":false}},"featured_collection":{"type":"featured-collection","settings":{"title":"Featured products","heading_size":"h2","description":"","show_description":false,"description_style":"body","collection":"all","products_to_show":8,"columns_desktop":4,"full_width":false,"show_view_all":true,"view_all_style":"solid","enable_desktop_slider":false,"color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":false,"padding_top":44,"padding_bottom":36}},"custom_liquid_Gzg7Ki":{"type":"custom-liquid","settings":{"custom_liquid":"<div style=\"display:flex; padding:8rem; background-color:#f3f4f8; align-items:start;\">\n<div style=\"width:35%; min-width:content-fit;\">\n<h4 style=\"color:#cbe346;  text-align:end; \n font-style:bold;\">TENNIS<\/h4>\n<\/div>\n<div style=\"width:fit-content;\"><h3 style=\"font-size:50px; background-color:red;\">Raquetas.Accesorios.<br\/>Pelotas.<\/h3>\n<p>Conoce nuestras raquetas y aprende a jugar <br\/> Tennis cómo un profesional.<\/p><\/div>\n<a href=\"\/collections\/all\" class=\"button button--secondary\">Acerca de nosotros<\/a>\n<\/div>","color_scheme":"","padding_top":40,"padding_bottom":52}}},"order":["image_banner","featured_collection","custom_liquid_Gzg7Ki"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Las mejores raquetas para jugar <strong> <\/strong>Tennis",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Acerca de nosotros",
+            "button_link_1": "shopify:\/\/collections\/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "custom_css": [
+        ".green-text {color: cbe346; font-style: bold;}"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bg.png",
+        "image_overlay_opacity": 10,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_Gzg7Ki": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"display:flex; padding:8rem; background-color:#f3f4f8; align-items:start;\">\n<div style=\"width:35%; min-width:content-fit;\">\n<h4 style=\"color:#cbe346;  text-align:end; \n font-style:bold;\">TENNIS<\/h4>\n<\/div>\n<div style=\"width:fit-content;\"><h3 style=\"font-size:50px; background-color:red;\">Raquetas.Accesorios.<br\/>Pelotas.<\/h3>\n<p>Conoce nuestras raquetas y aprende a jugar <br\/> Tennis cómo un profesional.<\/p><\/div>\n<a href=\"\/collections\/all\" class=\"button button--secondary\">Acerca de nosotros<\/a>\n<\/div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection",
+    "custom_liquid_Gzg7Ki"
+  ]
+}
