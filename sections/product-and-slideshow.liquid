@@ -62,14 +62,15 @@
   .custom-section {
     display: flex;
     justify-content: space-between;
-    align-items:center;
-    margin-top:1rem;
-    margin-bottom:1rem;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    overflow-x: hidden;
   }
   
   .slideshow {
-    width: 38%;
-    aspect-ratio: 1 / 1 ;
+    min-width: 38%;
+    aspect-ratio: 1 / 1;
     position: relative;
     display: flex;
     overflow: scroll;
@@ -83,9 +84,10 @@
     border-radius:5px;
   }
   .products {
-    width: 60%;
+    min-width: 75%;
+    overflow-x: scroll;
     display: flex;
-    gap:2.25rem;
+    gap: 2.25rem;
   }
   .product{
     display:flex;
