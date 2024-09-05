@@ -91,6 +91,10 @@
           "label": "Vimeo",
           "info": "https://vimeo.com/shopify"
         },
+        "social_linkedin_link": {
+          "label": "LinkedIn",
+          "info": "https://linkedin.com/shopify"
+        },
         "header": {
           "content": "Cuentas de redes sociales"
         }
@@ -1132,6 +1136,10 @@
             "heading": {
               "label": "Título",
               "default": "Banner de imagen"
+            },
+            "color_text": {
+              "label": "Texto con color",
+              "default": "Texto en color"
             }
           }
         },
