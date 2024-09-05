@@ -82,6 +82,17 @@
   .products {
     width: 50%;
   }
+  .product{
+    display:flex;
+    flex-direction:column;
+  }
+  .product p{
+    width:fit-content;
+    border-radius:100%;
+    background-color:#cbe346;
+    color:white;
+    padding:.5rem;
+  }
   {% endstylesheet %}
   
   <div class="custom-section">
@@ -94,9 +105,8 @@
       {% assign products = collections[section.settings.collection_id].products %}
       {% for product in products limit: section.settings.products_to_show %}
         <div class="product">
-          <img src="{{ product.featured_image | img_url: '100x100' }}" alt="{{ product.title }}">
-          <p>{{ product.title }}</p>
           <p>Producto #{{ forloop.index }}</p>
+          <img src="{{ product.featured_image | img_url: '100x100' }}" alt="{{ product.title }}">
         </div>
       {% endfor %}
     </div>
