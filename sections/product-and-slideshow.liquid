@@ -85,6 +85,7 @@
   .product{
     display:flex;
     flex-direction:column;
+    width:33%;
   }
   .product p{
     width:fit-content;
@@ -105,7 +106,7 @@
       {% assign products = collections[section.settings.collection_id].products %}
       {% for product in products limit: section.settings.products_to_show %}
         <div class="product">
-          <p>Producto #{{ forloop.index }}</p>
+          <p>{{ forloop.index }}</p>
           <img src="{{ product.featured_image | img_url: '100x100' }}" alt="{{ product.title }}">
         </div>
       {% endfor %}
