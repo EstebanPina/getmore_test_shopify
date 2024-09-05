@@ -1,27 +1,4 @@
-{% schema %}
-  {
-    "name": "Slideshow with products",
-    "settings": [],
-    "blocks": [
-    {
-      "type": "slideshow",
-      "name": "Slideshow",
-      "settings": []
-    },
-      {
-        "type": "featured-products",
-        "name": "Featured Products",
-        "settings": []
-      }
-    ],
-    "presets": [
-      {
-        "name": "SlideShow With products",
-        "category": "Custom"
-      }
-    ]
-  }
-  {% endschema %}
+
   {%- liquid
   assign products_to_display = section.settings.collection.all_products_count
 
@@ -41,63 +18,73 @@
     assign show_desktop_slider = true
   endif
 -%}
-  <div class="custom-slideshow-featured-products">
-    <!-- Slideshow -->
-    <div class="slideshow">
-      {% for block in section.blocks %}
-        {% if block.type == 'slideshow' %}
-          <!-- Código para el slideshow -->
-          <div class="slideshow-container">
-            <!-- Aquí va el código del slideshow -->
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-    
-    <!-- Featured Products -->
-    <div class="featured-products">
-      {% for block in section.blocks %}
-        {% if block.type == 'featured-products' %}
-          <!-- Código para los productos destacados -->
-          <div class="featured-products-container">
-            {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
-              <div class="product-card">
-                <a href="{{ product.url }}">
-                  <img width="100%" height="200px" src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-                  <p>{{ product.title }}</p>
-                  <p>{{ product.price | money }}</p>
-                </a>
-              </div>
-            {% endfor %}
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
+  <!-- templates/sections/custom-section.liquid -->
+{% schema %}
+  {
+    "name": "Sección personalizada",
+    "settings": [
+      {
+        "type": "product_list",
+        "id": "products_to_show",
+        "label": "Productos para mostrar"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Imagen del slideshow",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Imagen"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Sección personalizada",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
   
-  
-  {%- style -%}
-  .custom-slideshow-featured-products {
+  {% stylesheet %}
+  /* Aquí puedes añadir estilos adicionales para tu sección */
+  .custom-section {
     display: flex;
     justify-content: space-between;
   }
   
-  .slideshow, .featured-products {
-    width: 48%;
+  .slideshow {
+    width: 50%;
   }
   
-  .featured-products-container {
-    display: flex;
-    flex-wrap: wrap;
+  .products {
+    width: 50%;
   }
+  {% endstylesheet %}
   
-  .product-card {
-    width: 100%;
-    margin-bottom: 20px;
-  }
+  {% javascript %}
+  // Opcional: Añadir JavaScript aquí si es necesario
+  {% endjavascript %}
   
-  .product-card img {
-    width: 100%;
-    height: auto;
-  }
-  {%- endstyle -%}
+  <div class="custom-section">
+    <div class="slideshow">
+      {% for block in section.blocks %}
+        <img width="100px" height="100px" src="{{ block.settings.image | image_url: '800x' }}" alt="">
+      {% endfor %}
+    </div>
+    <div class="products">
+      {% for product in section.settings.products_to_show.products %}
+        <div class="product">
+          <img width="100px" height="100px" src="{{ product.featured_image | image_url: '300x300' }}" alt="{{ product.title }}">
+          <p>{{ product.title }}</p>
+          <p>{{ product.price | money }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  
