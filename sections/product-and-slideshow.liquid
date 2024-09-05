@@ -66,8 +66,19 @@
   
   .slideshow {
     width: 30%;
+    aspect-ratio: 1/1;
+    position: relative;
+    display: flex;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
   }
-  
+  .slideshow img{
+    width: 100%;
+    left:0;
+    position: sticky;
+    object-fit:cover;
+    border-radius:5px;
+  }
   .products {
     width: 50%;
   }
