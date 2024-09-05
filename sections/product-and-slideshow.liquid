@@ -76,7 +76,7 @@
   <div class="custom-section">
     <div class="slideshow">
       {% for block in section.blocks %}
-        <img src="{{ block.settings.image | img_url: '' }}" alt="">
+        <img src="{{ block.settings.image | img_url: '100%' }}" alt="">
       {% endfor %}
     </div>
     <div class="products">
