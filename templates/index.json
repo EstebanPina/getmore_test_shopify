@@ -16,7 +16,7 @@
           "type": "heading",
           "settings": {
             "heading": "Las mejores raquetas para jugar",
-            "color-text": "Tennis",
+            "color_text": "<strong>Tennis<\/strong>",
             "heading_size": "h0"
           }
         },
