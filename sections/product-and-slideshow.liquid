@@ -65,12 +65,22 @@
   }
   
   .slideshow {
-    width: 30%;
+    width: 33%;
     aspect-ratio: 1 / 1 ;
     position: relative;
     display: flex;
     overflow: scroll;
     scroll-snap-type: x mandatory;
+  }
+  .content{
+    position: relative;
+    width: 100%;
+    display: flex;
+    transition: 400ms ease-in-out;
+}
+  .slideshow input{
+    visibility:hidden;
+    display:none;
   }
   .slideshow img{
     width: 100%;
@@ -82,16 +92,71 @@
   .products {
     width: 50%;
   }
+  .buttons-slider{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    bottom: 50px;
+    gap: 10px;
+}
+.buttons-slider label{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 1;
+    transition:  300ms ease-in-out;
+}
+.buttons-slider label:hover{
+    scale: 1.2;
+    opacity: 1;
+}
+.slideshow input:nth-child(1):checked ~ .buttons-slider label:nth-child(1),
+.slideshow input:nth-child(2):checked ~ .buttons-slider label:nth-child(2),
+.slideshow input:nth-child(3):checked ~ .buttons-slider label:nth-child(3)
+{
+    opacity: 1;
+    scroll-margin: 1.2;
+    width: 40px;
+}
+.image-slider{
+    position: relative;
+    width: 33%;
+    aspect-ratio:1/1
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slideshow input:nth-child(1):checked ~ .content{
+    left: 0;
+}
+
+.slideshow input:nth-child(2):checked ~ .content{
+    left: -33%;
+}
+
+.slideshow input:nth-child(3):checked ~ .content{
+    left: -66%;
+}
   {% endstylesheet %}
   
   <div class="custom-section">
     <div class="slideshow">
       {% for block in section.blocks %}
-        <input type="radio" id={{forloop.index}} {%-if forloop.index < 2 -%}checked {%- endif -%}>
+        <input type="radio" id={{ forloop.index }} {%-if forloop.index < 2 -%}checked {%- endif -%}>
       {% endfor %}
-      {% for block in section.blocks %}
-        <img src="{{ block.settings.image | img_url: '100%' }}" alt="">
-      {% endfor %}
+      <div class="buttons-slider">
+        {% for block in section.blocks %}
+          <label for={{ forloop.index }}></label>
+        {% endfor %}
+      </div>
+      <div class="contents">
+        {% for block in section.blocks %}
+          <img class="image-slider" src="{{ block.settings.image | img_url: '100%' }}" alt="">
+        {% endfor %}
+      </div>
     </div>
     <div class="products">
       {% assign products = collections[section.settings.collection_id].products %}
