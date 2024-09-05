@@ -65,7 +65,7 @@
   }
   
   .slideshow {
-    width: 50%;
+    width: 30%;
   }
   
   .products {
@@ -76,7 +76,7 @@
   <div class="custom-section">
     <div class="slideshow">
       {% for block in section.blocks %}
-        <img src="{{ block.settings.image | img_url: '800x' }}" alt="">
+        <img src="{{ block.settings.image | img_url: '' }}" alt="">
       {% endfor %}
     </div>
     <div class="products">
@@ -85,7 +85,7 @@
         <div class="product">
           <img src="{{ product.featured_image | img_url: '300x300' }}" alt="{{ product.title }}">
           <p>{{ product.title }}</p>
-          <p>{{ product.price | money }}</p>
+          <p>Producto #{{ forloop.index }}</p>
         </div>
       {% endfor %}
     </div>
