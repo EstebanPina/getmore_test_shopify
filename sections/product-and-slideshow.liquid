@@ -3,6 +3,11 @@
     "name": "Slideshow with products",
     "settings": [],
     "blocks": [
+    {
+      "type": "slideshow",
+      "name": "Slideshow",
+      "settings": []
+    },
       {
         "type": "featured-products",
         "name": "Featured Products",
@@ -39,7 +44,14 @@
   <div class="custom-slideshow-featured-products">
     <!-- Slideshow -->
     <div class="slideshow">
-      {% section 'slideshow' %}
+      {% for block in section.blocks %}
+        {% if block.type == 'slideshow' %}
+          <!-- Código para el slideshow -->
+          <div class="slideshow-container">
+            <!-- Aquí va el código del slideshow -->
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
     
     <!-- Featured Products -->
