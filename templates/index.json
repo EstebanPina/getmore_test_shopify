@@ -105,12 +105,31 @@
         "stack_images_on_mobile": false,
         "show_text_below": false
       }
+    },
+    "product_and_slideshow_wGmjCr": {
+      "type": "product-and-slideshow",
+      "blocks": {
+        "image_jiM6iz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/slider.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_jiM6iz"
+      ],
+      "settings": {
+        "collection_id": "frontpage",
+        "products_to_show": 3
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
     "custom_liquid_Gzg7Ki",
-    "image_banner_CtCUxz"
+    "image_banner_CtCUxz",
+    "product_and_slideshow_wGmjCr"
   ]
 }
