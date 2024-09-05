@@ -115,16 +115,22 @@
   .button-slider{
     background-color:#cbe346;
     color:white;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    border-radius: 100%;
+    width: 4rem;
+    height: 4rem;
   }
   {% endstylesheet %}
   
   <div class="custom-section">
     <div class="slideshow">
       {% for block in section.blocks %}
-        <img src="{{ block.settings.image | img_url: '400x400' }}" alt={{ block.id }}>
+        <img id={{ forloop.index }} src="{{ block.settings.image | img_url: '400x400' }}" alt={{ block.id }}>
       {% endfor %}
-      <button class="button-slider">{{- 'icon-arrow.svg' | inline_asset_content -}}</button>
-      <button class="button-slider">{{- 'icon-arrow.svg' | inline_asset_content -}}</button>
+      <a href="#1" class="button-slider">{{- 'icon-arrow.svg' | inline_asset_content -}}</a>
+      <a href="#2" class="button-slider">{{- 'icon-arrow.svg' | inline_asset_content -}}</a>
     </div>
     <div class="products">
       {% assign products = collections[section.settings.collection_id].products %}
