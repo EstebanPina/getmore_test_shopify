@@ -1,6 +1,73 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Slideshow Products",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "featured-products",
+      "name": "Featured Products",
+      "settings": []
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
+
+<div class="custom-slideshow-featured-products">
+  <!-- Slideshow -->
+  <div class="slideshow">
+    {% section 'slideshow' %}
+  </div>
+  
+  <!-- Featured Products -->
+  <div class="featured-products">
+    {% for block in section.blocks %}
+      {% if block.type == 'featured-products' %}
+        <!-- Código para los productos destacados -->
+        <div class="featured-products-container">
+          {% assign collection = collections['frontpage'] %}
+          {% for product in collection.products %}
+            <div class="product-card">
+              <a href="{{ product.url }}">
+                <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+                <p>{{ product.title }}</p>
+                <p>{{ product.price | money }}</p>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.custom-slideshow-featured-products {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slideshow, .featured-products {
+  width: 48%;
+}
+
+.featured-products-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+</style>
