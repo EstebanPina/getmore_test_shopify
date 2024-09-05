@@ -112,6 +112,10 @@
     object-fit:cover;
     border-radius:5px;
   }
+  .button-slider{
+    background-color:#cbe346;
+    color:white;
+  }
   {% endstylesheet %}
   
   <div class="custom-section">
@@ -119,6 +123,8 @@
       {% for block in section.blocks %}
         <img src="{{ block.settings.image | img_url: '400x400' }}" alt={{ block.id }}>
       {% endfor %}
+      <button class="button-slider">{{- 'icon-arrow.svg' | inline_asset_content -}}</button>
+      <button class="button-slider">{{- 'icon-arrow.svg' | inline_asset_content -}}</button>
     </div>
     <div class="products">
       {% assign products = collections[section.settings.collection_id].products %}
