@@ -73,7 +73,12 @@
     display: flex;
     overflow: scroll;
     scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
   }
+  .slideshow::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
   .container-slider {
     min-width: 38%;
     position: relative;
@@ -92,7 +97,12 @@
     overflow-x: scroll;
     display: flex;
     gap: 2.25rem;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
   }
+  .products::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
   .product {
     display: flex;
     flex-direction: column;
