@@ -153,25 +153,15 @@
     align-items:center;
     gap:1rem;
   }
-  .title-slider{
-    display:flex;
-    position:absolute;
-    top:20%;
-  }
-  .description-slider{
-    display:flex;
-    position:absolute;
-    top:40%;
-  }
 {% endstylesheet %}
 
 <div class="custom-section">
   <div class="container-slider">
     <div class="slideshow">
       {% for block in section.blocks %}
-        <img
+        <div
           id="image-slider-{{ forloop.index }}"
-          src="{{ block.settings.image | img_url: '400x400' }}"
+          style="background-image: url({{ block.settings.image | img_url: '400x400' }});"
           alt="{{ block.id }}"
         />
       {% endfor %}
