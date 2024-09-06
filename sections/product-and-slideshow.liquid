@@ -234,6 +234,7 @@ function showImage(index) {
   if (slideshow) { // Verificar si slideshow realmente existe
     
   const scrollPosition = index * imageWidth;
+  console.log(scrollPosition)
     slideshow.scrollTo({
       left: scrollPosition,
       behavior: 'smooth'
