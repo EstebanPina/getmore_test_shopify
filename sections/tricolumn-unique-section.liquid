@@ -9,13 +9,13 @@
         "default": "Bienvenido a Nuestra Tienda"
       },
       {
-        "type": "text",
+        "type": "inline_richtext",
         "id": "section_heading",
         "label": "Encabezado de la Sección",
         "default": "Explora Nuestros Productos"
       },
       {
-        "type": "text",
+        "type": "inline_richtext",
         "id": "section_description",
         "label": "Descripción",
         "default": "Encuentra lo mejor para ti"
@@ -77,17 +77,27 @@
     {% endstylesheet %}
   
   <div class="responsive-section">
-    <h1>{{ section.settings.page_heading }}</h1>
-    <h2>{{ section.settings.section_heading }}</h2>
-    <p>{{ section.settings.section_description }}</p>
     <div class="columns-container">
-      {%- if section.settings.button_label_1 != blank -%}
-        <a href="{{ section.settings.button_link_1 }}"
-           class="button {% if section.settings.button_style_secondary_1 %}button--secondary{% else %}button--primary{% endif %}"
-           role="button">
-          {{ section.settings.button_label_1 }}
-        </a>
-      {%- endif -%}
+      <div class="column">
+        <h4>{{ section.settings.page_heading }}</h4>
+        </div>
+      <div class="column">
+        <h1>{{ section.settings.section_heading }}</h1>
+        <p>{{ section.settings.section_description }}</p>
+      </div>
+      <div class="column">
+        {%- if section.settings.button_label_1 != blank -%}
+          <a href="{{ section.settings.button_link_1 }}"
+            class="button {% if section.settings.button_style_secondary_1 %}button--secondary{% else %}button--primary{% endif %}"
+            role="button">
+            {{ section.settings.button_label_1 }}
+            <span class="svg-wrapper">
+              {{- 'icon-arrow-button.svg' | inline_asset_content -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </div>
+      
     </div>
   </div>
   
