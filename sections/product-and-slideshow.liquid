@@ -220,6 +220,7 @@
   }
 {% endstylesheet %}
 <script>
+  let currentImageIndex = 0;
 const slideshow = document.getElementById('slideshow');
 const images = document.querySelectorAll('#slideshow img');
 const imageWidth = images[0].clientWidth; // Asume que todas las imágenes tienen el mismo ancho.
