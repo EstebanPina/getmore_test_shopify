@@ -115,21 +115,22 @@
   .button-slider{
     background-color:#cbe346;
     color:white;
-    position: absolute;
     border-radius: 100%;
     width: 4rem;
     height: 4rem;
-    bottom:20px;
     display:flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
   }
-  .left{
-    left:35%;
-  }
-  .right{
-    right:35%
+  .buttons-container{
+    position:absolute;
+    bottom:5%;
+    display:flex;
+    justify-content:space-between;
+    width:80%;
+    background-color:#ff000088;
+    z-index:20;
   }
   {% endstylesheet %}
   
@@ -138,8 +139,10 @@
       {% for block in section.blocks %}
         <img id={{ forloop.index }} src="{{ block.settings.image | img_url: '400x400' }}" alt={{ block.id }}>
       {% endfor %}
-      <a href="#1" class="button-slider left"> <span>&#x2B9C;</span> </a>
-      <a href="#2" class="button-slider right"> <span>&#x2B9E;</span> </a>
+      <div class="buttons-container">
+        <a href="#1" class="button-slider"> <span>&#x2B9C;</span> </a>
+        <a href="#2" class="button-slider"> <span>&#x2B9E;</span> </a>
+      </div>
     </div>
     <div class="products">
       {% assign products = collections[section.settings.collection_id].products %}
