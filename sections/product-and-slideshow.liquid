@@ -148,6 +148,10 @@
     border-radius: 100%;
     color:transparent:
   }
+  .nav-buttons-container{
+    display:flex
+    align-items:center
+  }
 {% endstylesheet %}
 
 <div class="custom-section">
@@ -163,7 +167,7 @@
     </div>
     <div class="buttons-container">
       <a href="#1" class="button-slider"> <span>&#x2B9C;</span> </a>
-      <div>
+      <div class="nav-buttons-container">
         {% for block in section.blocks %}
           <a href="#image-slider-{{ forloop.index }}" class="white-button">.</a>
         {% endfor %}
