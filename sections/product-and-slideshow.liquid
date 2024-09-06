@@ -169,8 +169,6 @@
   <div class="container-slider">
     <div class="slideshow">
       {% for block in section.blocks %}
-        <h3 class="title-slider">Title</h3>
-        <p class="description-slider">description</p>
         <img
           id="image-slider-{{ forloop.index }}"
           src="{{ block.settings.image | img_url: '400x400' }}"
@@ -179,6 +177,8 @@
       {% endfor %}
     </div>
     <div class="buttons-container">
+      <h3 class="title-slider">Title</h3>
+      <p class="description-slider">description</p>
       <a href="#1" class="button-slider"> <span>&#x2B9C;</span> </a>
       <div class="nav-buttons-container">
         {% for block in section.blocks %}
