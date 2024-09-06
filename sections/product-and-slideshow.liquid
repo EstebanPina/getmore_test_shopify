@@ -120,6 +120,7 @@
     width: 4rem;
     height: 4rem;
     bottom:20px;
+    text-align:center;
   }
   .left{
     left:35%;
@@ -135,7 +136,7 @@
         <img id={{ forloop.index }} src="{{ block.settings.image | img_url: '400x400' }}" alt={{ block.id }}>
       {% endfor %}
       <a href="#1" class="button-slider left"> &#x2B9C; </a>
-      <a href="#2" class="button-slider right"> &#x2B9D; </a>
+      <a href="#2" class="button-slider right"> &#x2B9E; </a>
     </div>
     <div class="products">
       {% assign products = collections[section.settings.collection_id].products %}
