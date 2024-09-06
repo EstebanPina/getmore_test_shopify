@@ -186,6 +186,7 @@
     align-items: center;
     border-radius: 100%;
     color:transparent;
+    border:0;
   }
   .nav-buttons-container{
     display:flex;
@@ -223,6 +224,7 @@ let currentImageIndex = 0;
 const images = document.querySelectorAll('.slider-image');
 
 function showImage(index) {
+  console.log(index)
   images.forEach((img, idx) => {
     img.style.display = 'none';
     if (idx === index) {
@@ -254,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <h3 class="title-slider" {{ settings.shopify_attributes }}>{{ section.settings.slider_title }}</h3>
       <p class="description-slider" {{ settings.shopify_attributes }}>{{ section.settings.slider_description }}</p>
     </div>
-    <div class="slideshow">
+    <div class="slideshow" id="slideshow">
       {% for block in section.blocks %}
         <img
           id="image-slider-{{ forloop.index }}"
@@ -267,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="buttons-container">
       <div class="nav-buttons-container">
         {% for block in section.blocks %}
-          <a href="#image-slider-{{ forloop.index }}" class="white-button">.</a>
+          <button class="white-button" onclick="showImage({{ forloop.index0 }});">.</button>
         {% endfor %}
         </div>
       <div class="buttons-next-prev">
