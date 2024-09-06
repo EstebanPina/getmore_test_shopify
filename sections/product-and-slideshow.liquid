@@ -153,12 +153,22 @@
     align-items:center;
     gap:1rem;
   }
+  .title-slider{
+    display:flex;
+    position:absolute;
+  }
+  .description-slider{
+    display:flex;
+    position:absolute;
+  }
 {% endstylesheet %}
 
 <div class="custom-section">
   <div class="container-slider">
     <div class="slideshow">
       {% for block in section.blocks %}
+        <h3 class="title-slider">Title</h3>
+        <p class="description-slider">description</p>
         <img
           id="image-slider-{{ forloop.index }}"
           src="{{ block.settings.image | img_url: '400x400' }}"
