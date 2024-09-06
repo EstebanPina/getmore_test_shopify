@@ -33,6 +33,18 @@
       "id": "products_to_show",
       "label": "Número de productos a mostrar",
       "default": 3
+    },
+    {
+      "type": "text",
+      "id": "slider_title",
+      "label": "Título del Slider",
+      "default": "Título predeterminado"
+    },
+    {
+      "type": "textarea",
+      "id": "slider_description",
+      "label": "Descripción del Slider",
+      "default": "Descripción predeterminada"
     }
   ],
   "blocks": [
@@ -188,8 +200,8 @@
 <div class="custom-section">
   <div class="container-slider">
     <div class="text-container">
-      <h3 class="title-slider">Title</h3>
-      <p class="descripction-slider">description</p>
+      <h3 class="title-slider">{{ section.settings.slider_title }}</h3>
+      <p class="descripction-slider">{{ section.settings.slider_description }}</p>
     </div>
     <div class="slideshow">
       {% for block in section.blocks %}
