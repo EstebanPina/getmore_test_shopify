@@ -153,22 +153,31 @@
     align-items:center;
     gap:1rem;
   }
+  .text-container{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:20%;
+    gap:2rem;
+  }
 {% endstylesheet %}
 
 <div class="custom-section">
   <div class="container-slider">
+    <div class="text-container">
+      <h3 class="title-slider">Title</h3>
+      <p class="descripction-slider">description</p>
+    </div>
     <div class="slideshow">
       {% for block in section.blocks %}
-        <div
+        <img
           id="image-slider-{{ forloop.index }}"
-          style="background-image: url({{ block.settings.image | img_url: '400x400' }});"
+          src="{{ block.settings.image | img_url: '400x400' }}"
           alt="{{ block.id }}"
         />
       {% endfor %}
     </div>
     <div class="buttons-container">
-      <h3 class="title-slider">Title</h3>
-      <p class="description-slider">description</p>
       <a href="#1" class="button-slider"> <span>&#x2B9C;</span> </a>
       <div class="nav-buttons-container">
         {% for block in section.blocks %}
