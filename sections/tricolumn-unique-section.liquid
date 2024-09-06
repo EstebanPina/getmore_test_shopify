@@ -48,70 +48,7 @@
 }
 {% endschema %}
 
-{% stylesheet %}
-  .responsive-section {
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-
-  .columns-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .column {
-    flex: 1 1 100%; /* Por defecto, cada columna toma el 100% del ancho del contenedor */
-    text-align: center;
-    justify-content: center;
-    padding: 4.5rem;
-  }
-
-  .button_column {
-    justify-items: end;
-    align-items: end;
-    display: flex;
-  }
-
-  .column h1 {
-    margin: 0;
-    text-align: center;
-    font-size: xx-large;
-  }
-  .column p {
-    text-align: center;
-  }
-  .column h4 {
-    color: #cbe346;
-    text-align: center;
-    word-spacing: 0.25em;
-    letter-spacing: 0.25em;
-    font-size: x-large;
-    font-style: bold;
-  }
-  /* Media query para pantallas más grandes que 749px */
-  @media (min-width: 750px) {
-    .column {
-      flex: 1 1 32%; /* Cada columna toma aproximadamente un tercio del ancho del contenedor */
-    }
-    .column h1 {
-      margin: 0;
-      text-align: left;
-      font-size: xx-large;
-    }
-    .column p {
-      text-align: left;
-    }
-    .column h4 {
-      color: #cbe346;
-      text-align: right;
-      word-spacing: 0.25em;
-      letter-spacing: 0.25em;
-      font-style: bold;
-      font-size: small;
-    }
-  }
-{% endstylesheet %}
+{{ 'component-tricolumn.css' | asset_url | stylesheet_tag }}
 
 <div class="responsive-section">
   <div class="columns-container">
