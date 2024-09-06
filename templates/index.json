@@ -114,10 +114,17 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/slider.png"
           }
+        },
+        "image_wkidgH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/slider.png"
+          }
         }
       },
       "block_order": [
-        "image_jiM6iz"
+        "image_jiM6iz",
+        "image_wkidgH"
       ],
       "settings": {
         "collection_id": "frontpage",
