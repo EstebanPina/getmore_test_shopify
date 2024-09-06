@@ -128,7 +128,9 @@
       ],
       "settings": {
         "collection_id": "frontpage",
-        "products_to_show": 3
+        "products_to_show": 3,
+        "slider_title": "Nuestras <strong>Raquetas<\/strong>",
+        "slider_description": "Conoce nuestras raquetas y aprende a jugar Tennis cómo un profesional."
       }
     }
   },
