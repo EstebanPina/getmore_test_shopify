@@ -63,7 +63,27 @@
     .column {
       flex: 1 1 100%; /* Por defecto, cada columna toma el 100% del ancho del contenedor */
       text-align: center;
+      justify-content:center;
       padding: 10px;
+    }
+    .column h1{
+      margin: 0;
+      text-align: left;
+      font-size: xx-large;
+    }
+    .column p{
+      text-align: left;
+    }
+    .column h4{
+      color:#CBE346;
+      text-align: right;
+      word-spacing: 0.25em;
+      letter-spacing: 0.25em;
+    }
+    .button_column{
+      justify-items: end;
+      align-items: end;
+      display: flex;
     }
   
     /* Media query para pantallas más grandes que 749px */
@@ -71,6 +91,21 @@
       .column {
         flex: 1 1 32%; /* Cada columna toma aproximadamente un tercio del ancho del contenedor */
       }
+      .column h1{
+      margin: 0;
+      text-align: center;
+      font-size: xx-large;
+    }
+    .column p{
+      text-align: center;
+    }
+    .column h4{
+      color:#CBE346;
+      text-align: center;
+      word-spacing: 0.25em;
+      letter-spacing: 0.25em;
+      font-size:x-large;
+    }
     }
     {% endstylesheet %}
   
@@ -83,7 +118,7 @@
         <h1>{{ section.settings.section_heading }}</h1>
         <p>{{ section.settings.section_description }}</p>
       </div>
-      <div class="column">
+      <div class="column button_column">
         {%- if section.settings.button_label_1 != blank -%}
           <a href="{{ section.settings.button_link_1 }}"
             class="button {% if section.settings.button_style_secondary_1 %}button--secondary{% else %}button--primary{% endif %}"
