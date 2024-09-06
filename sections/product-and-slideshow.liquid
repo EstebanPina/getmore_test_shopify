@@ -217,7 +217,34 @@
     gap:1rem;
   }
 {% endstylesheet %}
+<script>
+let currentImageIndex = 0;
+const images = document.querySelectorAll('.slider-image');
 
+function showImage(index) {
+  images.forEach((img, idx) => {
+    img.style.display = 'none';
+    if (idx === index) {
+      img.style.display = 'block';
+    }
+  });
+}
+
+function nextImage() {
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  showImage(currentImageIndex);
+}
+
+function previousImage() {
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  showImage(currentImageIndex);
+}
+
+// Initial setup to show the first image
+document.addEventListener('DOMContentLoaded', function() {
+  showImage(currentImageIndex);
+});
+</script>
 <div class="custom-section">
   <div class="container-slider">
     <div class="text-container">
@@ -230,6 +257,7 @@
           id="image-slider-{{ forloop.index }}"
           src="{{ block.settings.image | img_url: '400x400' }}"
           alt="{{ block.id }}"
+          style="display: {% if forloop.first %}block{% else %}none{% endif %};"
         />
       {% endfor %}
     </div>
@@ -240,8 +268,8 @@
         {% endfor %}
         </div>
       <div class="buttons-next-prev">
-        <a href="#1" class="button-slider"> <span>&#x2B9C;</span> </a>
-        <a href="#2" class="button-slider"> <span>&#x2B9E;</span> </a>
+        <a href="javascript:void(0)" class="button-slider" onclick="previousImage()"> <span>&#x2B9C;</span> </a>
+        <a href="javascript:void(0)" class="button-slider" onclick="nextImage()"> <span>&#x2B9E;</span> </a>
         </div>
     </div>
   </div>
