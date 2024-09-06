@@ -154,6 +154,7 @@
   }
   .button-slider {
     background-color: #cbe346;
+    border:0;
     color: white;
     border-radius: 100%;
     width: 4rem;
@@ -232,11 +233,13 @@ function showImage(index) {
 
 function nextImage() {
   currentImageIndex = (currentImageIndex + 1) % images.length;
+  console.log("Next");
   showImage(currentImageIndex);
 }
 
 function previousImage() {
   currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  console.log("Prev");
   showImage(currentImageIndex);
 }
 
@@ -268,8 +271,8 @@ document.addEventListener('DOMContentLoaded', function() {
         {% endfor %}
         </div>
       <div class="buttons-next-prev">
-        <a href="javascript:void(0)" class="button-slider" onclick="previousImage()"> <span>&#x2B9C;</span> </a>
-        <a href="javascript:void(0)" class="button-slider" onclick="nextImage()"> <span>&#x2B9E;</span> </a>
+        <button  class="button-slider" onclick="previousImage()"> <span>&#x2B9C;</span> </button>
+        <button  class="button-slider" onclick="nextImage()"> <span>&#x2B9E;</span> </button>
         </div>
     </div>
   </div>
