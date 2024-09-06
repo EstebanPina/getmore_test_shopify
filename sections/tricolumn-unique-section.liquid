@@ -4,40 +4,41 @@
     "settings": [
       {
         "type": "text",
-        "id": "page-heading",
-        "label": "Encabezado de la Pagina",
+        "id": "page_heading",
+        "label": "Encabezado de la Página",
         "default": "Bienvenido a Nuestra Tienda"
       },
       {
         "type": "text",
-        "id": "page-heading",
+        "id": "section_heading",
         "label": "Encabezado de la Sección",
-        "default": "Bienvenido a Nuestra Tienda"
+        "default": "Explora Nuestros Productos"
       },
       {
         "type": "text",
-        "id": "page-heading",
-        "label": "Descripcion",
-        "default": "Bienvenido a Nuestra Tienda"
+        "id": "section_description",
+        "label": "Descripción",
+        "default": "Encuentra lo mejor para ti"
       },
       {
-          "type": "text",
-          "id": "button_label_1",
-          "default": "t:sections.image-banner.blocks.buttons.settings.button_label_1.default",
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label",
-          "info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
-        },
-        {
-          "type": "url",
-          "id": "button_link_1",
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary_1",
-          "default": false,
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
-        }
+        "type": "text",
+        "id": "button_label_1",
+        "label": "Etiqueta del Botón",
+        "default": "Más Información",
+        "info": "Texto que aparecerá en el botón."
+      },
+      {
+        "type": "url",
+        "id": "button_link_1",
+        "label": "Enlace del Botón",
+        "default": "https://example.com"
+      },
+      {
+        "type": "checkbox",
+        "id": "button_style_secondary_1",
+        "label": "Usar Estilo Secundario para el Botón",
+        "default": false
+      }
     ],
     "presets": [
       {
@@ -47,6 +48,7 @@
     ]
   }
   {% endschema %}
+  
   {% stylesheet %}
     .responsive-section {
       padding: 20px;
@@ -76,22 +78,18 @@
     {% endstylesheet %}
   
   <div class="responsive-section">
+    <h1>{{ section.settings.page_heading }}</h1>
+    <h2>{{ section.settings.section_heading }}</h2>
+    <p>{{ section.settings.section_description }}</p>
     <div class="columns-container">
       {%- if section.settings.button_label_1 != blank -%}
-        <a
-          {% if section.settings.button_link_1 == blank %}
-            role="link" aria-disabled="true"
-          {% else %}
-            href="{{ section.settings.button_link_1 }}"
-          {% endif %}
-          class="button{% if section.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
-        >
-          {{- section.settings.button_label_1 | escape -}} 
-          <span class="svg-wrapper">
-            {{- 'icon-arrow-button.svg' | inline_asset_content -}}
-          </span>
+        <a href="{{ section.settings.button_link_1 }}"
+           class="button {% if section.settings.button_style_secondary_1 %}button--secondary{% else %}button--primary{% endif %}"
+           role="button">
+          {{ section.settings.button_label_1 }}
         </a>
       {%- endif -%}
     </div>
   </div>
+  
   
