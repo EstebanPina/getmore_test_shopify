@@ -35,13 +35,13 @@
       "default": 3
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "slider_title",
       "label": "Título del Slider",
       "default": "Título predeterminado"
     },
     {
-      "type": "textarea",
+      "type": "inline_richtext",
       "id": "slider_description",
       "label": "Descripción del Slider",
       "default": "Descripción predeterminada"
@@ -200,8 +200,8 @@
 <div class="custom-section">
   <div class="container-slider">
     <div class="text-container">
-      <h3 class="title-slider">{{ section.settings.slider_title }}</h3>
-      <p class="descripction-slider">{{ section.settings.slider_description }}</p>
+      <h3 class="title-slider" {{ settings.shopify_attributes }}>{{ section.settings.slider_title }}</h3>
+      <p class="descripction-slider" {{ settings.shopify_attributes }}>{{ section.settings.slider_description }}</p>
     </div>
     <div class="slideshow">
       {% for block in section.blocks %}
