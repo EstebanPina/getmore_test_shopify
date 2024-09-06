@@ -163,7 +163,7 @@
           id="image-slider-{{ forloop.index }}"
           src="{{ block.settings.image | img_url: '400x400' }}"
           alt="{{ block.id }}"
-        >
+        />
       {% endfor %}
     </div>
     <div class="buttons-container">
@@ -181,7 +181,7 @@
     {% for product in products limit: section.settings.products_to_show %}
       <div class="product">
         <span>{{ forloop.index }}</span>
-        <img src="{{ product.featured_image | img_url: '300x300' }}" alt="{{ product.title }}">
+        <img src="{{ product.featured_image | img_url: '300x300' }}" alt="{{ product.title }}"/>
       </div>
     {% endfor %}
   </div>
