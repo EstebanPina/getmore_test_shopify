@@ -259,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="slideshow" id="slideshow">
       {% for block in section.blocks %}
         <img
+          class="slider-image"
           id="image-slider-{{ forloop.index }}"
           src="{{ block.settings.image | img_url: '400x400' }}"
           alt="{{ block.id }}"
