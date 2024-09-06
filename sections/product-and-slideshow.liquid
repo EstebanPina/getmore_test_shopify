@@ -283,7 +283,6 @@ document.addEventListener('DOMContentLoaded', function() {
           id="image-slider-{{ forloop.index }}"
           src="{{ block.settings.image | img_url: '400x400' }}"
           alt="{{ block.id }}"
-          style="display: {% if forloop.first %}block{% else %}none{% endif %};"
         />
       {% endfor %}
     </div>
