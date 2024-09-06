@@ -111,12 +111,12 @@
     justify-content:center;
   }
   .slideshow img {
-    flex: none; /* Evita que Flexbox redimensione las imágenes */
-    width: 100%; /* o un ancho específico según tu diseño */
+    width: 100%;
+    left: 0;
+    position: sticky;
     object-fit: cover;
     border-radius: 5px;
-    position: relative;
-}
+  }
   .products {
     min-width: 75%;
     overflow-x: scroll;
@@ -220,32 +220,29 @@
   }
 {% endstylesheet %}
 <script>
-let currentImageIndex = 0;
-const images = document.querySelectorAll('.slider-image');
+const slideshow = document.getElementById('slideshow');
+const images = document.querySelectorAll('#slideshow img');
+const imageWidth = images[0].clientWidth; // Asume que todas las imágenes tienen el mismo ancho.
 
 function showImage(index) {
-  console.log(index)
-  images.forEach((img, idx) => {
-    img.style.display = 'none';
-    if (idx === index) {
-      img.style.display = 'block';
-    }
+  const scrollPosition = index * imageWidth;
+  slideshow.scrollTo({
+    left: scrollPosition,
+    behavior: 'smooth' // Esto hace que el desplazamiento sea suave.
   });
 }
 
 function nextImage() {
   currentImageIndex = (currentImageIndex + 1) % images.length;
-  console.log("Next");
   showImage(currentImageIndex);
 }
 
 function previousImage() {
   currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-  console.log("Prev");
   showImage(currentImageIndex);
 }
 
-// Initial setup to show the first image
+// Inicializar en la primera imagen en la carga
 document.addEventListener('DOMContentLoaded', function() {
   showImage(currentImageIndex);
 });
@@ -259,7 +256,6 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="slideshow" id="slideshow">
       {% for block in section.blocks %}
         <img
-          class="slider-image"
           id="image-slider-{{ forloop.index }}"
           src="{{ block.settings.image | img_url: '400x400' }}"
           alt="{{ block.id }}"
