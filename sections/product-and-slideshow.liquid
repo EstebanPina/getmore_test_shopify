@@ -136,13 +136,13 @@
   
   <div class="custom-section">
     <div class="slideshow">
-      {% for block in section.blocks %}
-        <img id={{ forloop.index }} src="{{ block.settings.image | img_url: '400x400' }}" alt={{ block.id }}>
-      {% endfor %}
       <div class="buttons-container">
         <a href="#1" class="button-slider"> <span>&#x2B9C;</span> </a>
         <a href="#2" class="button-slider"> <span>&#x2B9E;</span> </a>
       </div>
+      {% for block in section.blocks %}
+        <img id={{ forloop.index }} src="{{ block.settings.image | img_url: '400x400' }}" alt={{ block.id }}>
+      {% endfor %}
     </div>
     <div class="products">
       {% assign products = collections[section.settings.collection_id].products %}
