@@ -1,141 +1,140 @@
 {% schema %}
-  {
-    "name": "Tricolumn Section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "page_heading",
-        "label": "Encabezado de la Página",
-        "default": "Bienvenido a Nuestra Tienda"
-      },
-      {
-        "type": "inline_richtext",
-        "id": "section_heading",
-        "label": "Encabezado de la Sección",
-        "default": "Explora Nuestros Productos"
-      },
-      {
-        "type": "inline_richtext",
-        "id": "section_description",
-        "label": "Descripción",
-        "default": "Encuentra lo mejor para ti"
-      },
-      {
-        "type": "text",
-        "id": "button_label_1",
-        "label": "Etiqueta del Botón",
-        "default": "boton",
-        "info": "Texto que aparecerá en el botón."
-      },
-      {
-        "type": "url",
-        "id": "button_link_1",
-        "label": "Enlace del Botón"
-      },
-      {
-        "type": "checkbox",
-        "id": "button_style_secondary_1",
-        "label": "Usar Estilo Secundario para el Botón",
-        "default": false
-      }
-    ],
-    "presets": [
-      {
-        "name": "Tricolumn Section",
-        "category": "Custom"
-      }
-    ]
+{
+  "name": "Tricolumn Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "page_heading",
+      "label": "Encabezado de la Página",
+      "default": "Bienvenido a Nuestra Tienda"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "section_heading",
+      "label": "Encabezado de la Sección",
+      "default": "Explora Nuestros Productos"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "section_description",
+      "label": "Descripción",
+      "default": "Encuentra lo mejor para ti"
+    },
+    {
+      "type": "text",
+      "id": "button_label_1",
+      "label": "Etiqueta del Botón",
+      "default": "boton",
+      "info": "Texto que aparecerá en el botón."
+    },
+    {
+      "type": "url",
+      "id": "button_link_1",
+      "label": "Enlace del Botón"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary_1",
+      "label": "Usar Estilo Secundario para el Botón",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tricolumn Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+  .responsive-section {
+    padding: 20px;
+    background-color: #f9f9f9;
   }
-  {% endschema %}
-  
-  {% stylesheet %}
-    .responsive-section {
-      padding: 20px;
-      background-color: #f9f9f9;
-    }
-  
-    .columns-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-  
-    .column {
-      flex: 1 1 100%; /* Por defecto, cada columna toma el 100% del ancho del contenedor */
-      text-align: center;
-      justify-content:center;
-      padding: 10px;
-    }
-    
-    .button_column{
-      justify-items: end;
-      align-items: end;
-      display: flex;
-    }
-  
-    .column h1{
+
+  .columns-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .column {
+    flex: 1 1 100%; /* Por defecto, cada columna toma el 100% del ancho del contenedor */
+    text-align: center;
+    justify-content: center;
+    padding: 4.5rem;
+  }
+
+  .button_column {
+    justify-items: end;
+    align-items: end;
+    display: flex;
+  }
+
+  .column h1 {
     margin: 0;
     text-align: center;
     font-size: xx-large;
   }
-  .column p{
+  .column p {
     text-align: center;
   }
-  .column h4{
-    color:#CBE346;
+  .column h4 {
+    color: #cbe346;
     text-align: center;
     word-spacing: 0.25em;
     letter-spacing: 0.25em;
-    font-size:x-large;
-    font-style:bold;
+    font-size: x-large;
+    font-style: bold;
   }
-    /* Media query para pantallas más grandes que 749px */
-    @media (min-width: 750px) {
-      .column {
-        flex: 1 1 32%; /* Cada columna toma aproximadamente un tercio del ancho del contenedor */
-      }
-      .column h1{
+  /* Media query para pantallas más grandes que 749px */
+  @media (min-width: 750px) {
+    .column {
+      flex: 1 1 32%; /* Cada columna toma aproximadamente un tercio del ancho del contenedor */
+    }
+    .column h1 {
       margin: 0;
       text-align: left;
       font-size: xx-large;
     }
-    .column p{
+    .column p {
       text-align: left;
     }
-    .column h4{
-      color:#CBE346;
+    .column h4 {
+      color: #cbe346;
       text-align: right;
       word-spacing: 0.25em;
       letter-spacing: 0.25em;
-      font-style:bold;
+      font-style: bold;
       font-size: small;
     }
-    }
-    {% endstylesheet %}
-  
-  <div class="responsive-section">
-    <div class="columns-container">
-      <div class="column">
-        <h4>{{ section.settings.page_heading }}</h4>
-        </div>
-      <div class="column">
-        <h1>{{ section.settings.section_heading }}</h1>
-        <p>{{ section.settings.section_description }}</p>
-      </div>
-      <div class="column button_column">
-        {%- if section.settings.button_label_1 != blank -%}
-          <a href="{{ section.settings.button_link_1 }}"
-            class="button {% if section.settings.button_style_secondary_1 %}button--secondary{% else %}button--primary{% endif %}"
-            role="button">
-            {{ section.settings.button_label_1 }}
-            <span class="svg-wrapper">
-              {{- 'icon-arrow-button.svg' | inline_asset_content -}}
-            </span>
-          </a>
-        {%- endif -%}
-      </div>
-      
+  }
+{% endstylesheet %}
+
+<div class="responsive-section">
+  <div class="columns-container">
+    <div class="column">
+      <h4>{{ section.settings.page_heading }}</h4>
+    </div>
+    <div class="column">
+      <h1>{{ section.settings.section_heading }}</h1>
+      <p>{{ section.settings.section_description }}</p>
+    </div>
+    <div class="column button_column">
+      {%- if section.settings.button_label_1 != blank -%}
+        <a
+          href="{{ section.settings.button_link_1 }}"
+          class="button {% if section.settings.button_style_secondary_1 %}button--secondary{% else %}button--primary{% endif %}"
+          role="button"
+        >
+          {{ section.settings.button_label_1 }}
+          <span class="svg-wrapper">
+            {{- 'icon-arrow-button.svg' | inline_asset_content -}}
+          </span>
+        </a>
+      {%- endif -%}
     </div>
   </div>
-  
-  
+</div>
