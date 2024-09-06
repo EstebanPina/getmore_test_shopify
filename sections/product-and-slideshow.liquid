@@ -239,6 +239,9 @@ function calculateImageWidth() {
 function showImage(index) {
   const imageWidth = calculateImageWidth(); // Calcula el ancho actual
   const scrollPosition = index * imageWidth;
+  console.log(index)
+  console.log(scrollPosition)
+  console.log(imageWidth)
   if (slideshow) {
     slideshow.scrollTo({
       left: scrollPosition,
@@ -248,6 +251,7 @@ function showImage(index) {
 }
 
 function nextImage() {
+  
   currentImageIndex = (currentImageIndex + 1) % images.length;
   showImage(currentImageIndex);
 }
