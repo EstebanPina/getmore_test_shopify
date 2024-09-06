@@ -221,16 +221,20 @@
 {% endstylesheet %}
 <script>
 let currentImageIndex = 0;
-let imageWidth; // Declaramos la variable pero no la inicializamos aún
-const slideshow = document.getElementById('slideshow');
+let imageWidth; // Declaramos la variable para el ancho de las imágenes
 const images = document.querySelectorAll('#slideshow img');
 
 function showImage(index) {
-  const scrollPosition = index * imageWidth;
-  slideshow.scrollTo({
-    left: scrollPosition,
-    behavior: 'smooth'
-  });
+  const slideshow = document.getElementById('slideshow'); // Asegurarse de obtener la referencia aquí dentro
+  if (slideshow) { // Verificar si slideshow realmente existe
+    const scrollPosition = index * imageWidth;
+    slideshow.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth'
+    });
+  } else {
+    console.error('Slideshow container not found!');
+  }
 }
 
 function nextImage() {
@@ -243,14 +247,15 @@ function previousImage() {
   showImage(currentImageIndex);
 }
 
-// Esperamos hasta que el contenido del DOM esté completamente cargado para inicializar imageWidth
+// Evento DOMContentLoaded para asegurar que todos los elementos están cargados
 document.addEventListener('DOMContentLoaded', function() {
   if (images.length > 0) {
-    imageWidth = images[0].clientWidth; // Inicializamos imageWidth aquí
+    imageWidth = images[0].clientWidth; // Inicializa imageWidth cuando sabemos que las imágenes están cargadas
   }
-  showImage(currentImageIndex); // Llama a showImage aquí para asegurarse de que imageWidth esté definido
+  showImage(currentImageIndex); // Muestra la primera imagen inicialmente
 });
 </script>
+
 
 <div class="custom-section">
   <div class="container-slider">
