@@ -138,7 +138,7 @@
   }
   .white-button {
     display: flex;
-    background-color: #fff;
+    background-color: #fffa;
     text-decoration: none;
     width: 1rem;
     height: 1rem;
@@ -146,6 +146,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 100%;
+    color:transparent:
   }
 {% endstylesheet %}
 
@@ -164,7 +165,7 @@
       <a href="#1" class="button-slider"> <span>&#x2B9C;</span> </a>
       <div>
         {% for block in section.blocks %}
-          <a href="#image-slider-{{ forloop.index }}" class="white-button"></a>
+          <a href="#image-slider-{{ forloop.index }}" class="white-button">.</a>
         {% endfor %}
       </div>
       <a href="#2" class="button-slider"> <span>&#x2B9E;</span> </a>
