@@ -119,6 +119,13 @@
     border-radius: 100%;
     width: 4rem;
     height: 4rem;
+    bottom:20px;
+  }
+  .left{
+    left:35%;
+  }
+  .right{
+    right:35%
   }
   {% endstylesheet %}
   
@@ -127,8 +134,8 @@
       {% for block in section.blocks %}
         <img id={{ forloop.index }} src="{{ block.settings.image | img_url: '400x400' }}" alt={{ block.id }}>
       {% endfor %}
-      <a href="#1" style="left: 40%;bottom: 10px;" class="button-slider">{{- 'icon-arrow.svg' | inline_asset_content -}}</a>
-      <a href="#2" style="left: 60%;bottom: 10px;" class="button-slider">{{- 'icon-arrow.svg' | inline_asset_content -}}</a>
+      <a href="#1" class="button-slider left"> &#x2B9C; </a>
+      <a href="#2" class="button-slider right"> &#x2B9D; </a>
     </div>
     <div class="products">
       {% assign products = collections[section.settings.collection_id].products %}
