@@ -101,11 +101,23 @@
         "stack_images_on_mobile": false,
         "show_text_below": false
       }
+    },
+    "tricolumn_unique_section_iTpCdk": {
+      "type": "tricolumn-unique-section",
+      "settings": {
+        "page_heading": "TENNIS",
+        "section_heading": "Raquetas.Accesorios. Pelotas.",
+        "section_description": "Conoce nuestras raquetas y aprende a jugar Tennis cómo un profesional.",
+        "button_label_1": "HISTORIA",
+        "button_link_1": "",
+        "button_style_secondary_1": true
+      }
     }
   },
   "order": [
     "image_banner",
     "product_and_slideshow_wGmjCr",
-    "image_banner_CtCUxz"
+    "image_banner_CtCUxz",
+    "tricolumn_unique_section_iTpCdk"
   ]
 }
