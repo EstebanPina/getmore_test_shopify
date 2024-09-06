@@ -74,10 +74,10 @@
     overflow: scroll;
     scroll-snap-type: x mandatory;
   }
-  .container-slider{
+  .container-slider {
     min-width: 38%;
     position: relative;
-    display:flex;
+    display: flex;
   }
   .slideshow img {
     width: 100%;
@@ -135,19 +135,32 @@
     background-color: #ff000088;
     z-index: 20;
   }
+  .white-button {
+    width: 1rem;
+    height: 1rem;
+  }
 {% endstylesheet %}
 
 <div class="custom-section">
   <div class="container-slider">
     <div class="slideshow">
       {% for block in section.blocks %}
-        <img id="{{ forloop.index }}" src="{{ block.settings.image | img_url: '400x400' }}" alt="{{ block.id }}">
+        <img
+          id="image-slider-{{ forloop.index }}"
+          src="{{ block.settings.image | img_url: '400x400' }}"
+          alt="{{ block.id }}"
+        >
       {% endfor %}
     </div>
     <div class="buttons-container">
-        <a href="#1" class="button-slider"> <span>&#x2B9C;</span> </a>
-        <a href="#2" class="button-slider"> <span>&#x2B9E;</span> </a>
+      <a href="#1" class="button-slider"> <span>&#x2B9C;</span> </a>
+      <div>
+        {% for block in section.blocks %}
+          <a href="image-slider-{{ forloop.index }}" class="white-button">.</a>
+        {% endfor %}
       </div>
+      <a href="#2" class="button-slider"> <span>&#x2B9E;</span> </a>
+    </div>
   </div>
   <div class="products">
     {% assign products = collections[section.settings.collection_id].products %}
