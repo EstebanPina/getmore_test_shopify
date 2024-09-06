@@ -67,11 +67,17 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/slider.png"
           }
+        },
+        "image_Pchtzt": {
+          "type": "image",
+          "settings": {
+          }
         }
       },
       "block_order": [
         "image_jiM6iz",
-        "image_wkidgH"
+        "image_wkidgH",
+        "image_Pchtzt"
       ],
       "settings": {
         "collection_id": "frontpage",
