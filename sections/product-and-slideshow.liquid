@@ -224,46 +224,51 @@
 {% endstylesheet %}
 <script>
 let currentImageIndex = 0;
-let imageWidth; // Declaramos la variable para el ancho de las imágenes
-const images = document.querySelectorAll('#slideshow img');
+let images;
+let slideshow;
+
+function calculateImageWidth() {
+  const screenWidth = window.innerWidth;
+  if (screenWidth > 749) {
+    return window.innerWidth * 0.35; // 35% del ancho de la ventana
+  } else {
+    return window.innerWidth; // 100% del ancho de la ventana
+  }
+}
 
 function showImage(index) {
-  const slideshow = document.getElementById('slideshow'); // Asegurarse de obtener la referencia aquí dentro
-  console.log(slideshow)
-  console.log(index)
-  if (slideshow) { // Verificar si slideshow realmente existe
-  console.log(imageWidth)  
+  const imageWidth = calculateImageWidth(); // Calcula el ancho actual
   const scrollPosition = index * imageWidth;
-  console.log(scrollPosition)
+  if (slideshow) {
     slideshow.scrollTo({
       left: scrollPosition,
       behavior: 'smooth'
     });
-  } else {
-    console.error('Slideshow container not found!');
   }
 }
 
 function nextImage() {
-  console.log("next")
   currentImageIndex = (currentImageIndex + 1) % images.length;
   showImage(currentImageIndex);
 }
 
 function previousImage() {
-  console.log("prev")
   currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
   showImage(currentImageIndex);
 }
 
-// Evento DOMContentLoaded para asegurar que todos los elementos están cargados
 document.addEventListener('DOMContentLoaded', function() {
-  if (images.length > 0) {
-    imageWidth = images[0].clientWidth; // Inicializa imageWidth cuando sabemos que las imágenes están cargadas
-  }
+  slideshow = document.getElementById('slideshow');
+  images = document.querySelectorAll('#slideshow img');
   showImage(currentImageIndex); // Muestra la primera imagen inicialmente
+
+  // Agrega un controlador para el evento de cambio de tamaño
+  window.addEventListener('resize', function() {
+    showImage(currentImageIndex); // Actualiza la posición del slider al cambiar el tamaño de la ventana
+  });
 });
 </script>
+
 
 
 <div class="custom-section">
