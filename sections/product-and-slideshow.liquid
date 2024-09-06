@@ -220,16 +220,16 @@
   }
 {% endstylesheet %}
 <script>
-  let currentImageIndex = 0;
+let currentImageIndex = 0;
+let imageWidth; // Declaramos la variable pero no la inicializamos aún
 const slideshow = document.getElementById('slideshow');
 const images = document.querySelectorAll('#slideshow img');
-const imageWidth = images[0].clientWidth; // Asume que todas las imágenes tienen el mismo ancho.
 
 function showImage(index) {
   const scrollPosition = index * imageWidth;
   slideshow.scrollTo({
     left: scrollPosition,
-    behavior: 'smooth' // Esto hace que el desplazamiento sea suave.
+    behavior: 'smooth'
   });
 }
 
@@ -243,11 +243,15 @@ function previousImage() {
   showImage(currentImageIndex);
 }
 
-// Inicializar en la primera imagen en la carga
+// Esperamos hasta que el contenido del DOM esté completamente cargado para inicializar imageWidth
 document.addEventListener('DOMContentLoaded', function() {
-  showImage(currentImageIndex);
+  if (images.length > 0) {
+    imageWidth = images[0].clientWidth; // Inicializamos imageWidth aquí
+  }
+  showImage(currentImageIndex); // Llama a showImage aquí para asegurarse de que imageWidth esté definido
 });
 </script>
+
 <div class="custom-section">
   <div class="container-slider">
     <div class="text-container">
