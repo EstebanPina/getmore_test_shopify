@@ -111,10 +111,11 @@
     justify-content:center;
   }
   .slideshow img {
-    width: 100%;
+    flex: none; /* Evita que Flexbox redimensione las imágenes */
+    width: 100%; /* o un ancho específico según tu diseño */
     object-fit: cover;
     border-radius: 5px;
-    position: relative; /* Más adecuado para un slider */
+    position: relative;
 }
   .products {
     min-width: 75%;
